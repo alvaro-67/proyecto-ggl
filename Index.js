@@ -10,7 +10,7 @@ const path = require("path");
 const renderView = require("./Nucleo/renderView");
 
 app.use("/assets", express.static(path.join(__dirname, "/assets")));
-app.use(express.static("public"));
+app.use(express.static("assets"));
 app.set("views", path.join(__dirname, "/views"));
 app.set("view engine", "ejs");
 
@@ -30,16 +30,15 @@ router.get("/template", function (req, res) {
   res.render("template", { content: "index" });
 });
 
-router.get("/ruta", (req, res) => {
-  res.render("reseñas", { content: "index" });
+router.get(`/ruta`, (req, res) => {
+  renderView(res, "reseñas");
 });
-
-router.get("/ruta", function (req, res) {
+router.get("/", function (req, res) {
   renderView(res, "reseñas");
 });
 
-router.get("/api", (req, res) => {
-  renderView("api", { content: "index" });
+router.get("/reseña", function (req, res) {
+  res.render("reseñas", { content: "index" });
 });
 
 // Agregamos rutas al servidor
