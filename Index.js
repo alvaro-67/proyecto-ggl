@@ -30,11 +30,15 @@ router.get("/template", function (req, res) {
   res.render("template", { content: "index" });
 });
 
-app.get("/ruta", (req, res) => {
+router.get("/ruta", (req, res) => {
   res.render("reseñas", { content: "index" });
 });
 
-app.get("/api", (req, res) => {
+router.get("/ruta", function (req, res) {
+  renderView(res, "reseñas");
+});
+
+router.get("/api", (req, res) => {
   res.render("api", { content: "index" });
 });
 
