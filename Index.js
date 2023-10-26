@@ -39,7 +39,7 @@ router.get("/ruta", function (req, res) {
 });
 
 router.get("/api", (req, res) => {
-  res.render("api", { content: "index" });
+  renderView("api", { content: "index" });
 });
 
 // Agregamos rutas al servidor
