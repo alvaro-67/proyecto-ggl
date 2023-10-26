@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reseñas de Videojuegos</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <ul class="menu">
+      <li><a href="#">Inicio</a></li>
+      <li><a href="#">Acerca de</a></li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle">Productos</a>
+        <ul class="dropdown-menu">
+          <li><a href="#">Producto 1</a></li>
+          <li><a href="#">Producto 2</a></li>
+          <li><a href="#">Producto 3</a></li>
+        </ul>
+      </li>
+      <li><a href="#">Contacto</a></li>
+    </ul>
+    <form class="search-form">
+      <input type="text" placeholder="Buscar">
+      <button type="submit">Buscar</button>
+    </form>
+  </nav>
+</body>
+</html>

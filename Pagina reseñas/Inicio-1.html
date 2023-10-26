@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reseñas de Videojuegos</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <script src="../Pagina reseñas/Java.js"></script>
+    <nav>
+      <div class="logo">
+        <a href="#">Mi sitio web</a>
+      </div>
+      <div class="toggle">
+        <i class="fas fa-bars"></i>
+      </div>
+      <ul class="menu">
+        <li><a href="#">Inicio</a></li>
+        <li><a href="#">Acerca de</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle">Productos</a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Producto 1</a></li>
+            <li><a href="#">Producto 2</a></li>
+            <li><a href="#">Producto 3</a></li>
+          </ul>
+        </li>
+        <li><a href="#">Contacto</a></li>
+        <li class="search">
+          <form class="search-form">
+            <input type="text" placeholder="Buscar" />
+            <button type="submit"><i class="fas fa-search"></i></button>
+          </form>
+        </li>
+      </ul>
+    </nav>
+
+    <!--<article class="noticia">
+      <img
+        class="img1"
+       src="../Pagina reseñas/Img/El mario 2.jpeg"
+        alt="Descripción de la imagen"
+      />
+      <h2>Título de la noticia</h2>
+      <p>Texto de la noticia...</p>
+      <img
+        class="img2"
+        src="../Pagina reseñas/Img/El mario 2.jpeg"
+        alt="Descripción de la imagen"
+      />
+      <h2>Título de la noticia</h2>
+      <p>Texto de la noticia...</p>
+    </article>-->
+
+    <div class="slideshow-container">
+      <input type="range" min="0" max="100" value="0" class="slider">
+      <div class="image-container">
+      <div class="mySlides fade">
+          <div class="numbertext">1 / 3</div>
+          <img src="../Pagina reseñas/Img/Zelda.jpg" style="width:100%" >
+      </div>
+      <div class="mySlides fade">
+          <div class="numbertext">2 / 3</div>
+          <img src="../Pagina reseñas/Img/El mario.jpeg" style="width:100%">
+      </div>
+      <div class="mySlides fade">
+          <div class="numbertext">3 / 3</div>
+          <img src="../Pagina reseñas/Img/El mario 2.jpeg" style="width:100%">
+      </div>
+      </div>
+      <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+      <a class="next" onclick="plusSlides(1)">&#10095;</a>
+  </div>
+  <br>
+  <div style="text-align:center">
+      <span class="dot" onclick="currentSlide(1)"></span>
+      <span class="dot" onclick="currentSlide(2)"></span>
+      <span class="dot" onclick="currentSlide(3)"></span>
+  </div>
+  <script src="script.js"></script>
+
+  </body>
+</html>

@@ -23,11 +23,15 @@ router.get(`/template`, (req, res) => {
   renderView(res, "template")
 });
 router.get("/", function (req, res) {
-  renderView(res, "template");
+  renderView(res, "template")
 });
 
 router.get("/template", function (req, res) {
   res.render("template", { content: "index" });
+});
+
+app.get('/ruta', (req, res) => {
+  res.render('reseñas', { content: "index" });
 });
 
 // Agregamos rutas al servidor
