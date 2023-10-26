@@ -8,34 +8,54 @@
     <div id="games-list">
       <!-- Aquí se mostrarán los juegos -->
     </div>
+    <button id="load-more">Cargar Más Juegos</button>
 
     <script>
       // Obten la clave API de RAWG
       const apiKey = "80b23824563e47a5aa1e38c8e2c455cc";
+      let nextPage = 1; // Página de resultados a cargar
+      const gamesList = document.getElementById("games-list");
+      const loadMoreButton = document.getElementById("load-more");
 
-      // URL base de la API de RAWG
-      const apiUrl = `https://api.rawg.io/api/games?key=${apiKey}&dates=2019-09-01,2019-09-30&platforms=18,1,7`;
+      // Función para cargar más juegos
+      function loadMoreGames() {
+        // URL para cargar más juegos
+        const apiUrl = `https://api.rawg.io/api/games?key=${apiKey}&dates=2019-09-01,2019-09-30&platforms=18,1,7&page=${nextPage}`;
 
-      // Realiza una solicitud GET a la API de RAWG
-      fetch(apiUrl)
-        .then((response) => response.json())
-        .then((data) => {
-          const games = data.results;
-          const gamesList = document.getElementById("games-list");
+        // Realiza una solicitud GET a la API de RAWG para la siguiente página
+        fetch(apiUrl)
+          .then((response) => response.json())
+          .then((data) => {
+            const newGames = data.results;
 
-          games.forEach((game) => {
-            const gameElement = document.createElement("div");
-            gameElement.innerHTML = `<h2>${
-              game.name
-            }</h2><p>Género: ${game.genres
-              .map((genre) => genre.name)
-              .join(", ")}</p><p>Calificación: ${game.rating}</p>`;
-            gamesList.appendChild(gameElement);
+            // Agrega los nuevos juegos a la lista
+            newGames.forEach((game) => {
+              const gameElement = document.createElement("div");
+              gameElement.innerHTML = `
+                <h2>${game.name}</h2>
+                <img src="${game.background_image}" alt="${
+                game.name
+              }" class="game-image">
+                <p>Género: ${game.genres
+                  .map((genre) => genre.name)
+                  .join(", ")}</p>
+                <p>Calificación: ${game.rating}</p>
+                <p>Plataformas: ${game.platforms
+                  .map((platform) => platform.platform.name)
+                  .join(", ")}</p>`;
+              gamesList.appendChild(gameElement);
+            });
+
+            // Actualiza la página para la siguiente carga
+            nextPage++;
+          })
+          .catch((error) => {
+            console.error("Error al cargar los juegos:", error);
           });
-        })
-        .catch((error) => {
-          console.error("Error al cargar los juegos:", error);
-        });
+      }
+
+      // Agregar un controlador de eventos al botón "Cargar Más Juegos"
+      loadMoreButton.addEventListener("click", loadMoreGames);
     </script>
   </body>
 </html>
