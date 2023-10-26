@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Mi Página Web de Videojuegos</title>
+  </head>
+  <body>
+    <h1>Videojuegos Populares</h1>
+    <div id="games-list">
+      <!-- Aquí se mostrarán los juegos -->
+    </div>
+
+    <script>
+      // Obten la clave API de RAWG
+      const apiKey = "80b23824563e47a5aa1e38c8e2c455cc";
+
+      // URL base de la API de RAWG
+      const apiUrl = `https://api.rawg.io/api/games?key=${apiKey}&dates=2019-09-01,2019-09-30&platforms=18,1,7`;
+
+      // Realiza una solicitud GET a la API de RAWG
+      fetch(apiUrl)
+        .then((response) => response.json())
+        .then((data) => {
+          const games = data.results;
+          const gamesList = document.getElementById("games-list");
+
+          games.forEach((game) => {
+            const gameElement = document.createElement("div");
+            gameElement.innerHTML = `<h2>${
+              game.name
+            }</h2><p>Género: ${game.genres
+              .map((genre) => genre.name)
+              .join(", ")}</p><p>Calificación: ${game.rating}</p>`;
+            gamesList.appendChild(gameElement);
+          });
+        })
+        .catch((error) => {
+          console.error("Error al cargar los juegos:", error);
+        });
+    </script>
+  </body>
+</html>
