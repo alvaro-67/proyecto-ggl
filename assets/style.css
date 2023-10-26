@@ -1,21 +1,15 @@
 body {
   margin: 0%;
-  background: #2b2a4c;
+  background-color: #1B2631;
   /*background: #7971EA;*/
 }
 
-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  /*background-color: #00032b;*/
-  /*background-color: #7971ea;*/
-  color: #fff;
-  /*padding: 1rem;*/
-  padding-left: 100;
-  padding-right: 0;
-  width: 100%;
-  margin: 0%;
+.fondo{
+  background-color: #17202A;
+}
+
+.grisaseo{
+  background-color: #242C35;
 }
 
 nav ul {
