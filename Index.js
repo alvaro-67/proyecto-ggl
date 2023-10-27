@@ -41,6 +41,17 @@ router.get("/reseña", function (req, res) {
   res.render("reseñas", { content: "index" });
 });
 
+router.get(`/apis`, (req, res) => {
+  renderView(res, "api");
+});
+router.get("/", function (req, res) {
+  renderView(res, "api");
+});
+
+router.get("/api", function (req, res) {
+  res.render("api", { content: "index" });
+});
+
 // Agregamos rutas al servidor
 app.use("/", router);
 

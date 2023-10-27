@@ -1,61 +1,58 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Mi Página Web de Videojuegos</title>
-  </head>
-  <body>
+<body>
+  <div class="text-light">
     <h1>Videojuegos Populares</h1>
-    <div id="games-list">
+    <div id="games-list" class=" position-absolute start-50 translate-middle-x">
       <!-- Aquí se mostrarán los juegos -->
     </div>
-    <button id="load-more">Cargar Más Juegos</button>
+  </div>
+  <button id="load-more">Cargar Más Juegos</button>
 
-    <script>
-      // Obten la clave API de RAWG
-      const apiKey = "80b23824563e47a5aa1e38c8e2c455cc";
-      let nextPage = 1; // Página de resultados a cargar
-      const gamesList = document.getElementById("games-list");
-      const loadMoreButton = document.getElementById("load-more");
+  <script>
+    // Obten la clave API de RAWG
+    const apiKey = "80b23824563e47a5aa1e38c8e2c455cc";
+    let nextPage = 1; // Página de resultados a cargar
+    const gamesList = document.getElementById("games-list");
+    const loadMoreButton = document.getElementById("load-more");
 
-      // Función para cargar más juegos
-      function loadMoreGames() {
-        // URL para cargar más juegos
-        const apiUrl = `https://api.rawg.io/api/games?key=${apiKey}&dates=2019-09-01,2019-09-30&platforms=18,1,7&page=${nextPage}`;
+    // Función para cargar más juegos
+    function loadMoreGames() {
+      // URL para cargar más juegos
+      const apiUrl = `https://api.rawg.io/api/games?key=${apiKey}&dates=2019-09-01,2019-09-30&platforms=18,1,7&page=${nextPage}`;
 
-        // Realiza una solicitud GET a la API de RAWG para la siguiente página
-        fetch(apiUrl)
-          .then((response) => response.json())
-          .then((data) => {
-            const newGames = data.results;
+      // Realiza una solicitud GET a la API de RAWG para la siguiente página
+      fetch(apiUrl)
+        .then((response) => response.json())
+        .then((data) => {
+          const newGames = data.results;
 
-            // Agrega los nuevos juegos a la lista
-            newGames.forEach((game) => {
-              const gameElement = document.createElement("div");
-              gameElement.innerHTML = `
+          // Agrega los nuevos juegos a la lista
+          newGames.forEach((game) => {
+            const gameElement = document.createElement("div");
+            gameElement.innerHTML = `
                 <h2>${game.name}</h2>
-                <img src="${game.background_image}" alt="${
-                game.name
-              }" class="game-image">
+                <img src="${game.background_image}" alt="${game.name
+              }" class="img-fluid rounded-startn col-md-9 ">
                 <p>Género: ${game.genres
-                  .map((genre) => genre.name)
-                  .join(", ")}</p>
+                .map((genre) => genre.name)
+                .join(", ")}</p>
                 <p>Calificación: ${game.rating}</p>
                 <p>Plataformas: ${game.platforms
-                  .map((platform) => platform.platform.name)
-                  .join(", ")}</p>`;
-              gamesList.appendChild(gameElement);
-            });
-
-            // Actualiza la página para la siguiente carga
-            nextPage++;
-          })
-          .catch((error) => {
-            console.error("Error al cargar los juegos:", error);
+                .map((platform) => platform.platform.name)
+                .join(", ")}</p>`;
+            gamesList.appendChild(gameElement);
           });
-      }
 
-      // Agregar un controlador de eventos al botón "Cargar Más Juegos"
-      loadMoreButton.addEventListener("click", loadMoreGames);
-    </script>
-  </body>
+          // Actualiza la página para la siguiente carga
+          nextPage++;
+        })
+        .catch((error) => {
+          console.error("Error al cargar los juegos:", error);
+        });
+    }
+
+    // Agregar un controlador de eventos al botón "Cargar Más Juegos"
+    loadMoreButton.addEventListener("click", loadMoreGames);
+  </script>
+</body>
+
 </html>
