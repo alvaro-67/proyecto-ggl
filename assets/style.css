@@ -12,28 +12,7 @@ body {
   background-color: #242C35;
 }
 
-nav ul {
-  display: flex;
-  list-style: none;
-}
 
-nav li {
-  margin-right: 1rem;
-  position: relative;
-}
-
-nav a {
-  color: #fff;
-  display: block;
-  padding: 0.5rem;
-  text-decoration: none;
-}
-
-nav a:hover {
-  /*background-color: #6057b3;*/
-  color: #e4e3e3;
-  border-radius: 20vh;
-}
 
 .menu {
   display: flex;
