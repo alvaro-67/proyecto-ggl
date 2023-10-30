@@ -1,19 +1,17 @@
 body {
   margin: 0%;
-  background-color: #1B2631;
+  background-color: #1b2631;
   background-image: var(--bs-gradient);
   /*background: #7971EA;*/
 }
 
-.fondo{
-  background-color: #0E0101;
+.fondo {
+  background-color: #0e0101;
 }
 
-.grisaseo{
-  background-color: #242C35;
+.grisaseo {
+  background-color: #242c35;
 }
-
-
 
 .menu {
   display: flex;
@@ -73,11 +71,10 @@ body {
   width: 10%;
 }
 
-.centrar{
+.centrar {
   justify-content: center;
   align-items: center;
 }
-
 
 .search-form button {
   padding: 5px 10px;
