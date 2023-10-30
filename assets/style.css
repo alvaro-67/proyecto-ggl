@@ -1,6 +1,7 @@
 body {
   margin: 0%;
   background-color: #1B2631;
+  background-image: var(--bs-gradient);
   /*background: #7971EA;*/
 }
 
